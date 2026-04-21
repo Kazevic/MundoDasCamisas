@@ -15,13 +15,13 @@ function toggleContraste() {
 }
 
 // ==========================================
-// 2. FUNÇÃO DE FEEDBACK ELEGANTE (SEM ALERT)
+// 2. FUNÇÃO DE FEEDBACK SEM ALERT
 // ==========================================
 function mostrarMensagem(mensagem, tipo = 'bg-danger') {
     const toastEl = document.getElementById('meuToast');
     const toastBody = document.getElementById('toastMensagem');
 
-    // Muda a cor do toast (vermelho pra erro, verde pra sucesso)
+    // Muda a cor do toast (vermelho para erro, verde para sucesso)
     toastEl.className = `toast align-items-center text-white ${tipo} border-0`;
     toastBody.innerText = mensagem;
 
@@ -38,18 +38,18 @@ if(celInput) {
     celInput.addEventListener('input', function(e) {
         let value = e.target.value.replace(/\D/g, ""); // Tira tudo que não é número
 
-        // Formata para (+55)XX-XXXXXXXX
+        // Formata para (+55)XX-XXXXXXXXX
         if (value.length > 2 && value.length <= 4) {
             value = "(+55)" + value.substring(2);
         } else if (value.length > 4) {
-            value = "(+55)" + value.substring(2, 4) + "-" + value.substring(4, 12);
+            value = "(+55)" + value.substring(2, 4) + "-" + value.substring(4, 13);
         }
         e.target.value = value;
     });
 }
 
 // ==========================================
-// 4. VALIDAÇÃO DO CADASTRO (A PARTE MAIS IMPORTANTE)
+// 4. VALIDAÇÃO DO CADASTRO
 // ==========================================
 const formCadastro = document.getElementById('formCadastro');
 if(formCadastro) {
@@ -72,7 +72,7 @@ if(formCadastro) {
             mostrarMensagem("Erro: O nome deve ter entre 15 e 60 caracteres alfabéticos.");
             return;
         }
-        if (telefone.length < 16) { // Tamanho de (+55)XX-XXXXXXXX
+        if (telefone.length < 17) { // Tamanho de (+55)XX-XXXXXXXX
             mostrarMensagem("Erro: Preencha o telefone no formato correto.");
             return;
         }

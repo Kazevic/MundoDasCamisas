@@ -19,7 +19,6 @@ body.alto-contraste {
 
 body.alto-contraste .navbar {
     background-color: #000000 !important;
-    border-bottom: 2px solid #fff;
 }
 
 body.alto-contraste .form-control {

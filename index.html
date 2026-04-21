@@ -10,25 +10,20 @@
 </head>
 <body>
 <!-- Menu superior -->
-<nav class="navbar navbar-dark bg-dark">
-    <div class="container d-flex justify-content-between">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
         <a class="navbar-brand" href="index.html">Mundo das Camisas</a>
-        <div>
+        <!-- Menu hambúrguer -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span> </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item"> <a class="nav-link active" href="index.html">Início</a> </li>
+                <li class="nav-item"> <a class="nav-link active" href="cadastro.html">Cadastro</a> </li>
+                <li class="nav-item"> <a class="nav-link active" href="login.html">Login</a> </li>
+            </ul>
             <button class="btn btn-sm btn-outline-light me-2" onclick="mudarFonte(1)">A+</button>
             <button class="btn btn-sm btn-outline-light me-2" onclick="mudarFonte(-1)">A-</button>
             <button class="btn btn-sm btn-outline-warning" onclick="toggleContraste()">🌗 Contraste</button>
-        </div>
-    </div>
-
-    <!-- Elemento para o Toast (Feedback sem usar alert) -->
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="meuToast" class="toast align-items-center text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="d-flex">
-                <div class="toast-body" id="toastMensagem">
-                    Mensagem de erro aqui.
-                </div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
         </div>
     </div>
 </nav>
