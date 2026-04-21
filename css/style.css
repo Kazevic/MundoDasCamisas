@@ -30,3 +30,8 @@ body.alto-contraste .form-control {
 body.alto-contraste label {
     color: #fff;
 }
+/* Placeholder no modo de alto contraste */
+body.alto-contraste ::placeholder {
+    color: #999;
+    opacity: 1;
+}
