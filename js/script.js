@@ -34,8 +34,8 @@ function mostrarMensagem(mensagem, tipo = 'bg-danger') {
 // 3. MÁSCARA DO TELEFONE
 // ==========================================
 const celInput = document.getElementById('celular');
-if(celInput) {
-    celInput.addEventListener('input', function(e) {
+if (celInput) {
+    celInput.addEventListener('input', function (e) {
         let value = e.target.value.replace(/\D/g, ""); // Tira tudo que não é número
 
         // Formata para (+55)XX-XXXXXXXXX
@@ -52,8 +52,8 @@ if(celInput) {
 // 4. VALIDAÇÃO DO CADASTRO
 // ==========================================
 const formCadastro = document.getElementById('formCadastro');
-if(formCadastro) {
-    formCadastro.addEventListener('submit', function(event) {
+if (formCadastro) {
+    formCadastro.addEventListener('submit', function (event) {
         event.preventDefault(); // Impede a página de recarregar
 
         const nome = document.getElementById('nome').value.trim();
