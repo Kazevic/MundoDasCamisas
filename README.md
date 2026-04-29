@@ -5,7 +5,7 @@
 <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript" />
 <img src="https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap" />
 </div>
-<img src="img/logo.png" alt="logotipo" />
+<img src="img/tela-inicial.png" alt="tela inicial do site" />
 
 Este é um projeto front-end de uma loja virtual fictícia de camisetas esportivas, desenvolvido por alunos do curso de Análise e Desenvolvimento de Sistemas da **UNISUAM**.
 
@@ -28,7 +28,7 @@ O projeto atende a diversos requisitos técnicos e de negócio, incluindo:
 - **Controle de Sessão:** Proteção das páginas internas e exibição do nome do usuário logado na barra de navegação.
 - **Validações de Cadastro:**
     - Regex para logins de 6 letras, senhas de 8 letras e nomes de 15 a 30 letras.
-    - Máscara dinâmica de telefone `(+55)XX-XXXXXXXX`.
+    - Máscara dinâmica de telefone `(+55)XX-XXXXXXXXX`.
 - **Acessibilidade:**
     - Alternância de tema (Alto Contraste/Modo Escuro).
     - Controle de aumento e diminuição do tamanho da fonte para usuários com baixa visão.

@@ -102,3 +102,71 @@ if (formCadastro) {
         }, 2000);
     });
 }
+// ==========================================
+// 4. LÓGICA DE LOGIN E CRIAÇÃO DA SESSÃO
+// ==========================================
+const formLogin = document.getElementById('formLogin');
+
+if (formLogin) {
+    formLogin.addEventListener('submit', function(event) {
+        event.preventDefault(); // Impede a página de recarregar
+
+        const loginDigitado = document.getElementById('loginAcesso').value.trim();
+        const senhaDigitada = document.getElementById('senhaAcesso').value.trim();
+
+        // Puxa os dados salvos na tela de Cadastro
+        const loginSalvo = localStorage.getItem('usuarioLogin');
+        const senhaSalva = localStorage.getItem('usuarioSenha');
+
+        // Compara os dados
+        if (loginDigitado === loginSalvo && senhaDigitada === senhaSalva) {
+            // Cria uma "chave" no localStorage dizendo que o usuário está logado
+            localStorage.setItem('usuarioLogado', 'sim');
+
+            // Redireciona para a Vitrine (Tela 3)
+            window.location.href = 'index.html';
+        } else {
+            mostrarMensagem("Login ou Senha incorretos!", "bg-danger");
+        }
+    });
+}
+// ==========================================
+// 5. CONTROLE DE SESSÃO NAS PÁGINAS DA LOJA
+// ==========================================
+function verificarSessao() {
+    // Verifica qual página o usuário está acessando agora
+    const urlAtual = window.location.pathname;
+
+    // Se ele está logado de verdade
+    const estaLogado = localStorage.getItem('usuarioLogado');
+    const nomeLogin = localStorage.getItem('usuarioLogin'); // O login de 6 letras dele
+
+    // Se NÃO está logado e NÃO está nas páginas de login/cadastro, expulsa pra tela de login
+    if (estaLogado !== 'sim' && !urlAtual.includes('login.html') && !urlAtual.includes('cadastro.html')) {
+        window.location.href = 'login.html';
+    }
+
+    // Se ESTÁ logado, coloca o nome dele em cima no menu e exibe botão de sair (ou oculta se não estiver)
+    if (estaLogado === 'sim') {
+        const spanNome = document.getElementById('nomeUsuarioLogado');
+        if (spanNome) {
+            spanNome.innerText = "Olá, " + nomeLogin;
+        }
+    }
+    else {
+        const botaoSair = document.querySelector('.botaoSair');
+        botaoSair.style.display = 'none';
+    }
+}
+// ==========================================
+// 6. FUNÇÃO PARA SAIR DA CONTA (LOGOUT)
+// ==========================================
+function fazerLogout() {
+    // Remove APENAS o status de logado (assim ele não perde a conta que cadastrou)
+    localStorage.removeItem('usuarioLogado');
+
+    // Redireciona de volta para o login
+    window.location.href = 'login.html';
+}
+// Executa a função toda vez que o script é carregado
+verificarSessao();
