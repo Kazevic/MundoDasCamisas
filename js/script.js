@@ -108,7 +108,7 @@ if (formCadastro) {
 const formLogin = document.getElementById('formLogin');
 
 if (formLogin) {
-    formLogin.addEventListener('submit', function(event) {
+    formLogin.addEventListener('submit', function (event) {
         event.preventDefault(); // Impede a página de recarregar
 
         const loginDigitado = document.getElementById('loginAcesso').value.trim();
@@ -152,12 +152,12 @@ function verificarSessao() {
         if (spanNome) {
             spanNome.innerText = "Olá, " + nomeLogin;
         }
-    }
-    else {
+    } else {
         const botaoSair = document.querySelector('.botaoSair');
         botaoSair.style.display = 'none';
     }
 }
+
 // ==========================================
 // 6. FUNÇÃO PARA SAIR DA CONTA (LOGOUT)
 // ==========================================
@@ -168,5 +168,6 @@ function fazerLogout() {
     // Redireciona de volta para o login
     window.location.href = 'login.html';
 }
+
 // Executa a função toda vez que o script é carregado
 verificarSessao();

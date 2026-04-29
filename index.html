@@ -10,11 +10,11 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<!-- todo: cadastro de  endereço (aí usa o viaCEP), arrumar o alinhamento do cadastro, adicionar telas de cadastro e submenus no OverLeaf, adicionar mais produtos, adicionar submenus com times nacionais, internacionais e seleções -->
+<!-- todo: cadastro de  endereço (aí usa o viaCEP), adicionar telas de cadastro e submenus no OverLeaf, adicionar mais produtos, adicionar submenus com times nacionais, internacionais e seleções -->
 <!-- Menu superior -->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #040273">
     <div class="container-fluid">
-        <img src="img/logo.png" alt="Logo" class="img-fluid ms-3" width="50" height="50">
+        <img alt="Logo" class="img-fluid ms-3" height="50" src="img/logo.png" width="50">
         <a class="navbar-brand p-3" href="index.html">Mundo das Camisas</a>
         <!-- Menu hambúrguer -->
         <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
@@ -30,7 +30,7 @@
             <button class="btn btn-sm btn-outline-light me-2" onclick="mudarFonte(1)">A+</button>
             <button class="btn btn-sm btn-outline-light me-2" onclick="mudarFonte(-1)">A-</button>
             <button class="btn btn-sm btn-outline-warning" onclick="toggleContraste()">🌗 Contraste</button>
-            <span id="nomeUsuarioLogado" class="me-3 fw-bold"></span>
+            <span class="me-3 fw-bold" id="nomeUsuarioLogado"></span>
             <button class="btn btn-sm btn-danger botaoSair" onclick="fazerLogout()">Sair</button>
         </div>
     </div>
@@ -39,7 +39,7 @@
 <div style="height: 55px; max-height: 55px;">
 </div>
 <main>
-   <div class="carousel slide mb-6" data-bs-ride="carousel" id="myCarousel">
+    <div class="carousel slide mb-6" data-bs-ride="carousel" id="myCarousel">
         <div class="carousel-indicators">
             <button aria-label="Slide 1" class="" data-bs-slide-to="0" data-bs-target="#myCarousel"
                     type="button"></button>
@@ -50,13 +50,16 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item">
-                <img src="img/joga-sinistro-2.webp" alt="imagem da seleção brasileira" class="d-block w-100" style="max-width: 100%; height: 50%;">
+                <img alt="imagem da seleção brasileira" class="d-block w-100" src="img/joga-sinistro-2.webp"
+                     style="max-width: 100%; height: 50%;">
             </div>
             <div class="carousel-item active">
-                <img src="img/alegria-que-apavora.jpg" alt="imagem da camiseta da brasileira" class="d-block w-100" style="max-width: 100%; height: 50%;">
+                <img alt="imagem da camiseta da brasileira" class="d-block w-100" src="img/alegria-que-apavora.jpg"
+                     style="max-width: 100%; height: 50%;">
             </div>
             <div class="carousel-item">
-                <img src="img/joga-sinistro.webp" alt="imagem da seleção brasileira" class="d-block w-100" style="max-width: 100%; height: 50%;">
+                <img alt="imagem da seleção brasileira" class="d-block w-100" src="img/joga-sinistro.webp"
+                     style="max-width: 100%; height: 50%;">
             </div>
         </div>
         <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#myCarousel" type="button"><span
@@ -70,7 +73,7 @@
     <div class="row">
         <div class="col-md-3 col-6">
             <div class="card">
-                <img src="img/camisa-brasil-fa.webp" class="card-img-top" alt="Camisa do Brasil">
+                <img alt="Camisa do Brasil" class="card-img-top" src="img/camisa-brasil-fa.webp">
                 <div class="card-body text-center">
                     <h6 class="card-title">Camisa Seleção Brasileira 24/25 Fã</h6>
                     <p class="text-success fw-bold">R$ 159,90</p>
@@ -114,7 +117,9 @@
     <footer class="bg-dark text-white text-center py-3 mt-5">
         <div class="container">
             <p class="mb-1">© 2026 Mundo das Camisas</p>
-            <p>Este site foi desenvolvido exclusivamente para fins educacionais. Não realizamos vendas. Todas as imagens e logotipos de camisas e clubes pertencem aos seus respectivos donos e foram retiradas da internet para fins meramente ilustrativos.</p>
+            <p>Este site foi desenvolvido exclusivamente para fins educacionais. Não realizamos vendas. Todas as imagens
+                e logotipos de camisas e clubes pertencem aos seus respectivos donos e foram retiradas da internet para
+                fins meramente ilustrativos.</p>
         </div>
     </footer>
 </main>
