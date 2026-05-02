@@ -139,7 +139,7 @@ function verificarSessao() {
 
     // Se ele está logado de verdade
     const estaLogado = localStorage.getItem('usuarioLogado');
-    const nomeLogin = localStorage.getItem('usuarioLogin'); // O login de 6 letras dele
+    const nomeLogin = localStorage.getItem('usuarioLogin');
 
     // Se NÃO está logado e NÃO está nas páginas de login/cadastro, expulsa pra tela de login
     if (estaLogado !== 'sim' && !urlAtual.includes('login.html') && !urlAtual.includes('cadastro.html')) {
@@ -159,7 +159,7 @@ function verificarSessao() {
 }
 
 // ==========================================
-// 6. FUNÇÃO PARA SAIR DA CONTA (LOGOUT)
+// 6. SAIR DA CONTA
 // ==========================================
 function fazerLogout() {
     // Remove APENAS o status de logado (assim ele não perde a conta que cadastrou)
@@ -170,4 +170,81 @@ function fazerLogout() {
 }
 
 // Executa a função toda vez que o script é carregado
+
+// ==========================================
+// 7. AUTOCOMPLETAR ENDEREÇOS
+// ==========================================
+const cepInput = document.getElementById('cep');
+
+if (cepInput) {
+    // Coloca a máscara de CEP enquanto o usuário digita (00000-000)
+    cepInput.addEventListener('input', function (e) {
+        let value = e.target.value.replace(/\D/g, ""); // Tira letras
+        if (value.length > 5) {
+            value = value.substring(0, 5) + "-" + value.substring(5, 8);
+        }
+        e.target.value = value;
+    });
+
+    // Quando o usuário sai do campo de CEP (clica fora ou aperta Tab)
+    cepInput.addEventListener('blur', async function () {
+        // Pega só os números
+        const cepNumeros = cepInput.value.replace(/\D/g, "");
+
+        // Só tenta buscar se o CEP tiver 8 números exatos
+        if (cepNumeros.length === 8) {
+            try {
+                // Faz a requisição na API do ViaCEP
+                const resposta = await fetch(`https://viacep.com.br/ws/${cepNumeros}/json/`);
+                const dados = await resposta.json();
+                if (dados.erro) {
+                    mostrarMensagem("CEP não encontrado", "bg-warning text-dark");
+                    limparCamposEndereco();
+                } else {
+                    // Preenche os campos automaticamente com os IDs
+                    document.getElementById('logradouro').value = dados.logradouro;
+                    document.getElementById('bairro').value = dados.bairro;
+                    document.getElementById('cidade').value = dados.localidade;
+                    document.getElementById('estado').value = dados.uf;
+                    document.getElementById('numero').focus();
+                }
+            } catch (erro) {
+                mostrarMensagem("Erro ao tentar buscar o CEP.", "bg-danger");
+            }
+        } else if (cepNumeros.length > 0) {
+            // Se ele digitou incompleto
+            mostrarMensagem("CEP inválido.", "bg-danger");
+            limparCamposEndereco();
+        }
+    });
+}
+
+// Limpar os campos se o usuário digitar errado no endereço
+function limparCamposEndereco() {
+    document.getElementById('logradouro').value = "";
+    document.getElementById('bairro').value = "";
+    document.getElementById('cidade').value = "";
+    document.getElementById('estado').value = "";
+}
+// ==========================================
+// 8. FILTRO DE CATEGORIAS (SUBMENU)
+// ==========================================
+function filtrarCategoria(categoriaEscolhida) {
+    const todosProdutos = document.querySelectorAll('.produto-card');
+
+    // Passa por cada produto verificando a categoria
+    todosProdutos.forEach(function(produto) {
+
+        // Pega a categoria do produto específico pela data-categoria
+        const categoriaDoProduto = produto.getAttribute('data-categoria');
+
+        // Se a pessoa clicou em "todas" OU se a categoria do produto for igual à escolhida no menu
+        if (categoriaEscolhida === 'todas' || categoriaEscolhida === categoriaDoProduto) {
+            produto.style.display = 'block';
+        } else {
+            produto.style.display = 'none';
+        }
+
+    });
+}
 verificarSessao();

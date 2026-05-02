@@ -36,3 +36,12 @@ body.alto-contraste ::placeholder {
     color: #999;
     opacity: 1;
 }
+.dropdown-menu {
+    background-color: #03025a;
+}
+.dropdown-item {
+    color: #fff;
+}
+.dropdown-item:hover {
+    background-color: #ffde21;
+}

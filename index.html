@@ -10,7 +10,6 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<!-- todo: cadastro de  endereço (aí usa o viaCEP), adicionar telas de cadastro e submenus no OverLeaf, adicionar mais produtos, adicionar submenus com times nacionais, internacionais e seleções -->
 <!-- Menu superior -->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #040273">
     <div class="container-fluid">
@@ -24,13 +23,26 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item"><a class="nav-link active" href="index.html">Início</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categorias
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('todas')">Todas as Camisas</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('nacionais')">Times Nacionais</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('internacionais')">Times Internacionais</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('selecao-brasileira')">Seleção Brasileira</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('outras-selecoes')">Outras Seleções</a></li>
+                    </ul>
+                </li>
                 <li class="nav-item"><a class="nav-link active" href="cadastro.html">Cadastro</a></li>
                 <li class="nav-item"><a class="nav-link active" href="login.html">Login</a></li>
             </ul>
             <button class="btn btn-sm btn-outline-light me-2" onclick="mudarFonte(1)">A+</button>
             <button class="btn btn-sm btn-outline-light me-2" onclick="mudarFonte(-1)">A-</button>
             <button class="btn btn-sm btn-outline-warning" onclick="toggleContraste()">🌗 Contraste</button>
-            <span class="me-3 fw-bold" id="nomeUsuarioLogado"></span>
+            <span class="me-3 fw-bold text-white ps-3" id="nomeUsuarioLogado"></span>
             <button class="btn btn-sm btn-danger botaoSair" onclick="fazerLogout()">Sair</button>
         </div>
     </div>
@@ -70,50 +82,43 @@
                 class="visually-hidden">Próximo</span></button>
     </div>
     <!-- Grid de Camisas -->
-    <div class="row">
-        <div class="col-md-3 col-6">
-            <div class="card">
+    <div class="row mt-4" id="gridProdutos">
+        <div class="col-md-3 col-6 produto-card" data-categoria="selecao-brasileira">
+            <div class="card mb-4">
                 <img alt="Camisa do Brasil" class="card-img-top" src="img/camisa-brasil-fa.webp">
                 <div class="card-body text-center">
-                    <h6 class="card-title">Camisa Seleção Brasileira 24/25 Fã</h6>
+                    <h6 class="card-title">Camisa Seleção Brasileira Fã 24/25</h6>
                     <p class="text-success fw-bold">R$ 159,90</p>
                     <button class="btn btn-primary btn-sm">Comprar</button>
                 </div>
             </div>
         </div>
+        <div class="col-md-3 col-6 produto-card" data-categoria="nacionais">
+            <div class="card mb-4">
+                <div class="bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 250px;">
+                    Foto Flamengo
+                </div>
+                <div class="card-body text-center">
+                    <h6 class="card-title">Camisa Flamengo 2026</h6>
+                    <p class="text-success fw-bold">R$ 299,90</p>
+                    <button class="btn btn-primary btn-sm">Comprar</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-6 produto-card" data-categoria="outras-selecoes">
+            <div class="card mb-4">
+                <div class="bg-info text-white d-flex align-items-center justify-content-center" style="height: 250px;">
+                    Foto Argentina
+                </div>
+                <div class="card-body text-center">
+                    <h6 class="card-title">Camisa Argentina Tri 2022</h6>
+                    <p class="text-success fw-bold">R$ 349,90</p>
+                    <button class="btn btn-primary btn-sm">Comprar</button>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <!-- <div class="d-flex align-items-center justify-content-center">
-        <div class="container marketing">
-            <div class="row">
-                <div class="col-lg-4">
-                    <img src="img/camisa-brasil-fa.webp" alt="Camisa do Brasil" class="img-fluid" style="height: 120px;">
-                    <h2 class="fw-normal">Heading</h2>
-                    <p>Some representative placeholder content for the three columns of text below the carousel. This is
-                        the first column.</p>
-                    <p><a class="btn btn-secondary" href="#">View details »</a></p></div>
-                <div class="col-lg-4">
-                    <svg aria-label="Placeholder" class="bd-placeholder-img rounded-circle" height="140"
-                         preserveAspectRatio="xMidYMid slice" role="img" width="140" xmlns="http://www.w3.org/2000/svg">
-                        <title>Placeholder</title>
-                        <rect data-darkreader-inline-fill="" fill="var(--bs-secondary-color)" height="100%"
-                              style="--darkreader-inline-fill: var(--darkreader-bg--bs-secondary-color, var(--darkreader-background-ffffff, #121212));"
-                              width="100%"></rect>
-                    </svg>
-                    <h2 class="fw-normal">Heading</h2>
-                    <p>Another exciting bit of representative placeholder content. This time, we've moved on to the
-                        second column.</p>
-                    <p><a class="btn btn-secondary" href="#">View details »</a></p></div>
-                <div class="col-lg-4">
-                    <svg aria-label="Placeholder" class="bd-placeholder-img rounded-circle" height="140"
-                         preserveAspectRatio="xMidYMid slice" role="img" width="140" xmlns="http://www.w3.org/2000/svg">
-                        <title>Placeholder</title>
-                        <rect data-darkreader-inline-fill="" fill="var(--bs-secondary-color)" height="100%"
-                              style="--darkreader-inline-fill: var(--darkreader-bg--bs-secondary-color, var(--darkreader-background-ffffff, #121212));"
-                              width="100%"></rect>
-                    </svg>
-                    <h2 class="fw-normal">Heading</h2>
-                    <p>And lastly this, the third column of representative placeholder content.</p>
-                    <p><a class="btn btn-secondary" href="#">View details »</a></p></div> </div> -->
     <footer class="bg-dark text-white text-center py-3 mt-5">
         <div class="container">
             <p class="mb-1">© 2026 Mundo das Camisas</p>
