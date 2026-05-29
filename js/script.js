@@ -142,7 +142,7 @@ function verificarSessao() {
     const nomeLogin = localStorage.getItem('usuarioLogin');
 
     // Se NÃO está logado e NÃO está nas páginas de login/cadastro, expulsa pra tela de login
-    if (estaLogado !== 'sim' && !urlAtual.includes('login.html') && !urlAtual.includes('cadastro.html')) {
+    if (estaLogado !== 'sim' && !urlAtual.includes('login.html') && !urlAtual.includes('cadastro.html') && !urlAtual.includes('cadastro') && !urlAtual.includes('login')) {
         window.location.href = 'login.html';
     }
 
