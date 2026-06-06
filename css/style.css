@@ -10,7 +10,32 @@ body {
     color: #333;
     transition: background-color 0.3s, color 0.3s;
 }
-
+.carousel-item {
+    transition: transform 0.3s;
+    transition-timing-function: ease-in-out;
+}
+.nav-item:hover {
+    border-radius: 10px;
+    background-color: #076d92;
+    transition: background-color 0.3s;
+}
+/* Dropdown */
+.dropdown-divider {
+    height: 1px;
+    background-color: #ffffff;
+    opacity: 1;
+}
+.dropdown-menu {
+    background-color: #076d92;
+}
+.dropdown-item {
+    color: #fff;
+}
+.dropdown-item:hover {
+    background-color: #ffde21;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 /* Classe de Alto Contraste (Fundo Escuro, Letra Clara) */
 body.alto-contraste {
     background-color: #121212 !important;
@@ -39,19 +64,39 @@ body.alto-contraste .card {
 body.alto-contraste .btn {
     background-color: #ffde21;
     border-color: #ffde21;
-    color: #333;
+    color: #000000;
+}
+body.alto-contraste .btn:hover {
+    background-color: #dec11b;
+    border-color: #dec11b;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 /* Placeholder no modo de alto contraste */
 body.alto-contraste ::placeholder {
     color: #999;
     opacity: 1;
 }
-.dropdown-menu {
-    background-color: #03025a;
+body.alto-contraste .nav-item:hover {
+    border-radius: 10px;
+    background-color: #dec11b;
+    color: #000000;
+    transition: background-color 0.3s;
 }
-.dropdown-item {
-    color: #fff;
+/* Dropdown nom odo de alto contraste */
+body.alto-contraste .dropdown-divider {
+    height: 1px;
+    background-color: #000000;
+    opacity: 1;
 }
-.dropdown-item:hover {
-    background-color: #ffde21;
+body.alto-contraste .dropdown-menu {
+    background-color: #dec11b;
+}
+body.alto-contraste .dropdown-item {
+    color: #000000;
+}
+body.alto-contraste .dropdown-item:hover {
+    background-color: #076d92;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
