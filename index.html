@@ -11,7 +11,7 @@
 </head>
 <body>
 <!-- Menu superior -->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #040273">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #097ea9">
     <div class="container-fluid">
         <img alt="Logo" class="img-fluid ms-3" height="50" src="img/logo.png" width="50">
         <a class="navbar-brand p-3" href="index.html">Mundo das Camisas</a>
@@ -29,18 +29,18 @@
                         Categorias
                     </a>
                     <ul aria-labelledby="navbarDropdown" class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('todas')">Todas as Camisas</a>
+                        <li><a class="dropdown-item" onclick="filtrarCategoria('todas')">Todas as Camisas</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('nacionais')">Times
+                        <li><a class="dropdown-item" onclick="filtrarCategoria('nacionais')">Times
                             Nacionais</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('internacionais')">Times
+                        <li><a class="dropdown-item" onclick="filtrarCategoria('internacionais')">Times
                             Internacionais</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('selecao-brasileira')">Seleção
+                        <li><a class="dropdown-item" onclick="filtrarCategoria('selecao-brasileira')">Seleção
                             Brasileira</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('outras-selecoes')">Outras
+                        <li><a class="dropdown-item" onclick="filtrarCategoria('outras-selecoes')">Outras
                             Seleções</a></li>
                     </ul>
                 </li>
@@ -91,19 +91,9 @@
     </div>
     <!-- Grid de Camisas -->
     <div class="row mt-4" id="gridProdutos">
-        <div class="col-md-3 col-6 produto-card" data-categoria="selecao-brasileira">
-            <div class="card mb-4">
-                <img alt="Camisa do Brasil" class="card-img-top" src="img/camisa-brasil-fa.webp">
-                <div class="card-body text-center">
-                    <h6 class="card-title camisa" id="camisaBrasil">Camisa Brasil Fã 26/27 Masculina</h6>
-                    <p class="text-success fw-bold preco" id="precoBrasil">R$ 359,90</p>
-                    <button class="btn btn-primary btn-sm" onclick="telaCompra()">Comprar</button>
-                </div>
-            </div>
-        </div>
         <div class="col-md-3 col-6 produto-card" data-categoria="nacionais">
             <div class="card mb-4">
-                <img alt="Camisa do Flamengo" class="card-img-top" src="img/camisa-flamengo-torcedor.jpg">
+                <img alt="Camisa do Flamengo" class="card-img-top" src="img/camisa-flamengo-torcedor-m.jpg">
                 <div class="card-body text-center">
                     <h6 class="card-title camisa" id="camisaFlamengo">Camisa Flamengo Torcedor 26/27 Masculina</h6>
                     <p class="text-success fw-bold preco" id="precoFlamengo">R$ 399,90</p>
@@ -111,9 +101,29 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-3 col-6 produto-card" data-categoria="internacionais">
+            <div class="card mb-4">
+                <img alt="Camisa do PSG" class="card-img-top" src="img/camisa-psg-torcedor-m.webp">
+                <div class="card-body text-center">
+                    <h6 class="card-title camisa" id="camisaPsg">Camisa PSG Torcedor 25/26 Masculina</h6>
+                    <p class="text-success fw-bold preco" id="precoPsg">R$ 259,90</p>
+                    <button class="btn btn-primary btn-sm" onclick="telaCompra()">Comprar</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-6 produto-card" data-categoria="selecao-brasileira">
+            <div class="card mb-4">
+                <img alt="Camisa do Brasil" class="card-img-top" src="img/camisa-brasil-fa-m.webp">
+                <div class="card-body text-center">
+                    <h6 class="card-title camisa" id="camisaBrasil">Camisa Brasil Fã 26/27 Masculina</h6>
+                    <p class="text-success fw-bold preco" id="precoBrasil">R$ 359,90</p>
+                    <button class="btn btn-primary btn-sm" onclick="telaCompra()">Comprar</button>
+                </div>
+            </div>
+        </div>
             <div class="col-md-3 col-6 produto-card" data-categoria="outras-selecoes">
                 <div class="card mb-4">
-                    <img alt="Camisa da Argentina" class="card-img-top" src="img/camisa-argentina-torcedor.webp">
+                    <img alt="Camisa da Argentina" class="card-img-top" src="img/camisa-argentina-torcedor-m.webp">
                     <div class="card-body text-center">
                         <h6 class="card-title camisa" id="camisaArgentina">Camisa Argentina Torcedor 26/27 Masculina</h6>
                         <p class="text-success fw-bold preco" id="precoArgentina">R$ 349,90</p>
