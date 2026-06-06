@@ -31,6 +31,16 @@ body.alto-contraste label {
     color: #fff;
 }
 
+body.alto-contraste .card {
+    background-color: #333;
+    color: #fff;
+}
+
+body.alto-contraste .btn {
+    background-color: #ffde21;
+    border-color: #ffde21;
+    color: #333;
+}
 /* Placeholder no modo de alto contraste */
 body.alto-contraste ::placeholder {
     color: #999;
