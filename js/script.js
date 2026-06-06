@@ -247,4 +247,3 @@ function filtrarCategoria(categoriaEscolhida) {
 
     });
 }
-verificarSessao();
