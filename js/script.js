@@ -15,7 +15,7 @@ function toggleContraste() {
 }
 
 // ==========================================
-// 2. FUNÇÃO DE FEEDBACK SEM ALERT
+// 2. FUNÇÃO DE FEEDBACK
 // ==========================================
 function mostrarMensagem(mensagem, tipo = 'bg-danger') {
     const toastEl = document.getElementById('meuToast');
@@ -162,7 +162,7 @@ function verificarSessao() {
 // 6. SAIR DA CONTA
 // ==========================================
 function fazerLogout() {
-    // Remove APENAS o status de logado (assim ele não perde a conta que cadastrou)
+    // Remove SÓ o estado de logado (aí ele não perde a conta cadastrada)
     localStorage.removeItem('usuarioLogado');
 
     // Redireciona de volta para o login
@@ -247,3 +247,17 @@ function filtrarCategoria(categoriaEscolhida) {
 
     });
 }
+// ==========================================
+// 9. TELA DE COMPRA
+// ==========================================
+function telaCompra() {
+    alert("Adicionado ao carrinho!");
+    const produtos = document.getElementsByClassName('camisa');
+    const precos = document.getElementById('precoBrasil').value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); // Converte para a moeda real
+
+    localStorage.setItem('carrinho', JSON.stringify({
+        produtos,
+        precos
+    }));
+}
+verificarSessao();

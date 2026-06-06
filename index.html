@@ -24,16 +24,24 @@
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item"><a class="nav-link active" href="index.html">Início</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#"
+                       id="navbarDropdown" role="button">
                         Categorias
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('todas')">Todas as Camisas</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('nacionais')">Times Nacionais</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('internacionais')">Times Internacionais</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('selecao-brasileira')">Seleção Brasileira</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('outras-selecoes')">Outras Seleções</a></li>
+                    <ul aria-labelledby="navbarDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('todas')">Todas as Camisas</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('nacionais')">Times
+                            Nacionais</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('internacionais')">Times
+                            Internacionais</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('selecao-brasileira')">Seleção
+                            Brasileira</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('outras-selecoes')">Outras
+                            Seleções</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link active" href="cadastro.html">Cadastro</a></li>
@@ -87,46 +95,43 @@
             <div class="card mb-4">
                 <img alt="Camisa do Brasil" class="card-img-top" src="img/camisa-brasil-fa.webp">
                 <div class="card-body text-center">
-                    <h6 class="card-title">Camisa Seleção Brasileira Fã 24/25</h6>
-                    <p class="text-success fw-bold">R$ 159,90</p>
-                    <button class="btn btn-primary btn-sm">Comprar</button>
+                    <h6 class="card-title camisa" id="camisaBrasil">Camisa Brasil Fã 26/27 Masculina</h6>
+                    <p class="text-success fw-bold preco" id="precoBrasil">R$ 359,90</p>
+                    <button class="btn btn-primary btn-sm" onclick="telaCompra()">Comprar</button>
                 </div>
             </div>
         </div>
         <div class="col-md-3 col-6 produto-card" data-categoria="nacionais">
             <div class="card mb-4">
-                <div class="bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 250px;">
-                    Foto Flamengo
-                </div>
+                <img alt="Camisa do Flamengo" class="card-img-top" src="img/camisa-flamengo-torcedor.jpg">
                 <div class="card-body text-center">
-                    <h6 class="card-title">Camisa Flamengo 2026</h6>
-                    <p class="text-success fw-bold">R$ 299,90</p>
-                    <button class="btn btn-primary btn-sm">Comprar</button>
+                    <h6 class="card-title camisa" id="camisaFlamengo">Camisa Flamengo Torcedor 26/27 Masculina</h6>
+                    <p class="text-success fw-bold preco" id="precoFlamengo">R$ 399,90</p>
+                    <button class="btn btn-primary btn-sm" onclick="telaCompra()">Comprar</button>
                 </div>
             </div>
         </div>
-        <div class="col-md-3 col-6 produto-card" data-categoria="outras-selecoes">
-            <div class="card mb-4">
-                <div class="bg-info text-white d-flex align-items-center justify-content-center" style="height: 250px;">
-                    Foto Argentina
-                </div>
-                <div class="card-body text-center">
-                    <h6 class="card-title">Camisa Argentina Tri 2022</h6>
-                    <p class="text-success fw-bold">R$ 349,90</p>
-                    <button class="btn btn-primary btn-sm">Comprar</button>
+            <div class="col-md-3 col-6 produto-card" data-categoria="outras-selecoes">
+                <div class="card mb-4">
+                    <img alt="Camisa da Argentina" class="card-img-top" src="img/camisa-argentina-torcedor.webp">
+                    <div class="card-body text-center">
+                        <h6 class="card-title camisa" id="camisaArgentina">Camisa Argentina Torcedor 26/27 Masculina</h6>
+                        <p class="text-success fw-bold preco" id="precoArgentina">R$ 349,90</p>
+                        <button class="btn btn-primary btn-sm" onclick="telaCompra()">Comprar</button>
+                    </div>
                 </div>
             </div>
         </div>
-
-    </div>
-    <footer class="bg-dark text-white text-center py-3 mt-5">
-        <div class="container">
-            <p class="mb-1">© 2026 Mundo das Camisas</p>
-            <p>Este site foi desenvolvido exclusivamente para fins educacionais. Não realizamos vendas. Todas as imagens
-                e logotipos de camisas e clubes pertencem aos seus respectivos donos e foram retiradas da internet para
-                fins meramente ilustrativos.</p>
-        </div>
-    </footer>
+        <footer class="bg-dark text-white text-center py-3 mt-5">
+            <div class="container">
+                <p class="mb-1">© 2026 Mundo das Camisas</p>
+                <p>Este site foi desenvolvido exclusivamente para fins educacionais. Não realizamos vendas. Todas as
+                    imagens
+                    e logotipos de camisas e clubes pertencem aos seus respectivos donos e foram retiradas da internet
+                    para
+                    fins meramente ilustrativos.</p>
+            </div>
+        </footer>
 </main>
 <script crossorigin="anonymous"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
