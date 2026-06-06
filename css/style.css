@@ -10,6 +10,9 @@ body {
     color: #333;
     transition: background-color 0.3s, color 0.3s;
 }
+.btn {
+    border-radius: 10px;
+}
 .carousel-item {
     transition: transform 0.3s;
     transition-timing-function: ease-in-out;
