@@ -103,7 +103,7 @@ if (formCadastro) {
     });
 }
 // ==========================================
-// 4. LÓGICA DE LOGIN E CRIAÇÃO DA SESSÃO
+// 5. LÓGICA DE LOGIN E CRIAÇÃO DA SESSÃO
 // ==========================================
 const formLogin = document.getElementById('formLogin');
 
@@ -131,7 +131,7 @@ if (formLogin) {
     });
 }
 // ==========================================
-// 5. CONTROLE DE SESSÃO NAS PÁGINAS DA LOJA
+// 6. CONTROLE DE SESSÃO NAS PÁGINAS DA LOJA
 // ==========================================
 function verificarSessao() {
     // Verifica qual página o usuário está acessando agora
@@ -159,7 +159,7 @@ function verificarSessao() {
 }
 
 // ==========================================
-// 6. SAIR DA CONTA
+// 7. SAIR DA CONTA
 // ==========================================
 function fazerLogout() {
     // Remove SÓ o estado de logado (aí ele não perde a conta cadastrada)
@@ -172,7 +172,7 @@ function fazerLogout() {
 // Executa a função toda vez que o script é carregado
 
 // ==========================================
-// 7. AUTOCOMPLETAR ENDEREÇOS
+// 8. AUTOCOMPLETAR ENDEREÇOS
 // ==========================================
 const cepInput = document.getElementById('cep');
 
@@ -228,7 +228,7 @@ function limparCamposEndereco() {
 }
 
 // ==========================================
-// 8. FILTRO DE CATEGORIAS (SUBMENU)
+// 9. FILTRO DE CATEGORIAS (SUBMENU)
 // ==========================================
 function filtrarCategoria(categoriaEscolhida) {
     const todosProdutos = document.querySelectorAll('.produto-card');
@@ -250,7 +250,7 @@ function filtrarCategoria(categoriaEscolhida) {
 }
 
 // ==========================================
-// 9. SISTEMA DE CARRINHO
+// 10. SISTEMA DE CARRINHO
 // ==========================================
 let carrinho = JSON.parse(localStorage.getItem('meuCarrinho')) || [];
 
