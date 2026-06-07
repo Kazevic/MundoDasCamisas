@@ -226,6 +226,7 @@ function limparCamposEndereco() {
     document.getElementById('cidade').value = "";
     document.getElementById('estado').value = "";
 }
+
 // ==========================================
 // 8. FILTRO DE CATEGORIAS (SUBMENU)
 // ==========================================
@@ -233,7 +234,7 @@ function filtrarCategoria(categoriaEscolhida) {
     const todosProdutos = document.querySelectorAll('.produto-card');
 
     // Passa por cada produto verificando a categoria
-    todosProdutos.forEach(function(produto) {
+    todosProdutos.forEach(function (produto) {
 
         // Pega a categoria do produto específico pela data-categoria
         const categoriaDoProduto = produto.getAttribute('data-categoria');
@@ -247,17 +248,90 @@ function filtrarCategoria(categoriaEscolhida) {
 
     });
 }
-// ==========================================
-// 9. TELA DE COMPRA
-// ==========================================
-function telaCompra() {
-    alert("Adicionado ao carrinho!");
-    const produtos = document.getElementsByClassName('camisa');
-    const precos = document.getElementById('precoBrasil').value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); // Converte para a moeda real
 
-    localStorage.setItem('carrinho', JSON.stringify({
-        produtos,
-        precos
-    }));
+// ==========================================
+// 9. SISTEMA DE CARRINHO
+// ==========================================
+let carrinho = JSON.parse(localStorage.getItem('meuCarrinho')) || [];
+
+function adicionarAoCarrinho(nomeProduto, precoProduto) {
+    // Adiciona o item na lista e salva na memória
+    carrinho.push({ nome: nomeProduto, preco: parseFloat(precoProduto) });
+    localStorage.setItem('meuCarrinho', JSON.stringify(carrinho));
+
+    // Atualiza a tela primeiro antes de exibir a mensagem
+    atualizarExibicaoCarrinho();
+
+    // Exibe a notificação
+    mostrarMensagem(`${nomeProduto} adicionado ao carrinho!`, 'bg-success');
 }
+
+function atualizarExibicaoCarrinho() {
+    const lista = document.getElementById('listaCarrinho');
+    const totalTexto = document.getElementById('totalCarrinho');
+
+    // Pega todos os contadores do botão (com querySelectorAll para garantir)
+    const qtds = document.querySelectorAll('#qtdCarrinho');
+
+    // Atualiza a bolinha de quantidade no menu na mesma hora
+    qtds.forEach(qtd => {
+        qtd.innerText = carrinho.length;
+    });
+
+    // Para o carrinho se não tiver o botão na página
+    if (!lista) return;
+
+    // Atualiza os itens dentro do painel
+    lista.innerHTML = '';
+    let soma = 0;
+
+    carrinho.forEach((item, index) => {
+        soma += item.preco;
+        lista.innerHTML += `
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div><h6 class="my-0" style="font-size: 0.9rem;">${item.nome}</h6></div>
+                <div class="d-flex align-items-center">
+                    <span class="text-muted me-2">R$ ${item.preco.toFixed(2).replace('.', ',')}</span>
+                    <button class="btn btn-sm btn-outline-danger px-2 py-0" onclick="removerDoCarrinho(${index})">X</button>
+                </div>
+            </li>
+        `;
+    });
+
+    if (totalTexto) {
+        totalTexto.innerText = `R$ ${soma.toFixed(2).replace('.', ',')}`;
+    }
+}
+
+function removerDoCarrinho(index) {
+    carrinho.splice(index, 1);
+    localStorage.setItem('meuCarrinho', JSON.stringify(carrinho));
+    atualizarExibicaoCarrinho();
+}
+
+function finalizarCompra() {
+    if (carrinho.length === 0) {
+        mostrarMensagem('Seu carrinho está vazio!', 'bg-warning text-dark');
+        return;
+    }
+
+    // Limpa a lista e a memória
+    carrinho = [];
+    localStorage.removeItem('meuCarrinho');
+    atualizarExibicaoCarrinho();
+
+    mostrarMensagem('Compra finalizada com sucesso!', 'bg-success');
+
+    // Fecha o menu lateral automaticamente
+    const menuLateral = document.getElementById('carrinhoLateral');
+    if (menuLateral) {
+        const bsOffcanvas = bootstrap.Offcanvas.getInstance(menuLateral);
+        if (bsOffcanvas) bsOffcanvas.hide();
+    }
+}
+
+// Quando a tela carregar, atualiza o carrinho (para os itens não sumirem)
+document.addEventListener("DOMContentLoaded", function() {
+    atualizarExibicaoCarrinho();
+});
 verificarSessao();

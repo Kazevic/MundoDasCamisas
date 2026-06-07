@@ -10,34 +10,92 @@ body {
     color: #333;
     transition: background-color 0.3s, color 0.3s;
 }
+
+.navbar {
+    background-color: #097ea9;
+}
+
 .btn {
     border-radius: 10px;
 }
+
+.preco {
+    color: #3b9364;
+}
+
 .carousel-item {
     transition: transform 0.3s;
     transition-timing-function: ease-in-out;
+}
+
+.img-carousel {
+    max-width: 100%;
+    height: 50%;
+}
+/* Faz todos os cards preencherem 100% da altura da linha */
+.produto-card {
+    display: flex;
+}
+
+.produto-card .card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Padroniza o tamanho das imagens para não dar diferença */
+.produto-card .card-img-top {
+    height: 300px;
+    object-fit: contain;     /* Faz a camisa caber no espaço sem ser cortada ou achatada */
+    padding: 10px;
+    background-color: #fff;
+}
+
+/* Empurra o botão e o preço sempre para o fundo do card para alinhar todos */
+.produto-card .card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.produto-card .card-title {
+    flex-grow: 1; /* Faz o título preencher o espaço vazio e empurrar o resto pra baixo */
+}
+
+.produto-card .btn {
+    margin: auto; /* Cola o botão de comprar lá no limite de baixo */
 }
 .nav-item:hover {
     border-radius: 10px;
     background-color: #076d92;
     transition: background-color 0.3s;
 }
+
 /* Dropdown */
 .dropdown-divider {
     height: 1px;
     background-color: #ffffff;
     opacity: 1;
 }
+
 .dropdown-menu {
     background-color: #076d92;
 }
+
 .dropdown-item {
     color: #fff;
 }
+
 .dropdown-item:hover {
     background-color: #ffde21;
     cursor: pointer;
     transition: background-color 0.3s;
+    border-radius: 8px;
+}
+/* Arredonda as bordas esquerdas do painel lateral */
+.offcanvas-end {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-left: none; /* Tira uma linha dura que o Bootstrap coloca */
 }
 /* Classe de Alto Contraste (Fundo Escuro, Letra Clara) */
 body.alto-contraste {
@@ -69,37 +127,86 @@ body.alto-contraste .btn {
     border-color: #ffde21;
     color: #000000;
 }
+
 body.alto-contraste .btn:hover {
-    background-color: #dec11b;
-    border-color: #dec11b;
+    background-color: #dec11b !important;
+    border-color: #dec11b !important;
+    color: #000000 !important;
     transition: background-color 0.3s, border-color 0.3s;
 }
+
 /* Placeholder no modo de alto contraste */
 body.alto-contraste ::placeholder {
     color: #999;
     opacity: 1;
 }
+
 body.alto-contraste .nav-item:hover {
     border-radius: 10px;
     background-color: #dec11b;
     color: #000000;
     transition: background-color 0.3s;
 }
+
+body.alto-contraste .nav-item:hover .nav-link {
+    color: #000000 !important;
+}
+
 /* Dropdown nom odo de alto contraste */
 body.alto-contraste .dropdown-divider {
     height: 1px;
     background-color: #000000;
     opacity: 1;
 }
+
 body.alto-contraste .dropdown-menu {
     background-color: #dec11b;
 }
+
 body.alto-contraste .dropdown-item {
     color: #000000;
 }
+
 body.alto-contraste .dropdown-item:hover {
     background-color: #076d92;
     color: #ffffff;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+/* Fundo geral do painel lateral */
+body.alto-contraste .offcanvas {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+}
+
+/* Cabeçalho do carrinho (onde fica o título "Seu Carrinho") */
+body.alto-contraste .offcanvas-header {
+    background-color: #000000 !important;
+    border-bottom: 2px solid #ffde21;
+}
+
+/* Os itens da lista (as camisas adicionadas) */
+body.alto-contraste .list-group-item {
+    background-color: #222222 !important;
+    color: #ffffff !important;
+    border: 1px solid #444444 !important;
+}
+
+/* O preço da camisa que estava cinza clarinho (text-muted) */
+body.alto-contraste .list-group-item .text-muted {
+    color: #cccccc !important;
+}
+
+/* Força os botões dentro do carrinho (tipo o X de excluir item e Finalizar) a seguirem o amarelo */
+body.alto-contraste .offcanvas .btn-outline-danger {
+    border-color: #ffde21 !important;
+}
+
+body.alto-contraste .offcanvas .btn-outline-danger:hover {
+    background-color: #dec11b !important;
+    transition: background-color 0.3s;
+}
+/* Offcanvas */
+body.alto-contraste .offcanvas {
+    background-color: #000000;
 }

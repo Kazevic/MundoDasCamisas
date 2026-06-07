@@ -11,10 +11,10 @@
 </head>
 <body>
 <!-- Menu superior -->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #097ea9">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
     <div class="container-fluid">
         <img alt="Logo" class="img-fluid ms-3" height="50" src="img/logo.png" width="50">
-        <a class="navbar-brand p-3" href="index.html">Mundo das Camisas</a>
+        <a class="navbar-brand p-3 fw-bold" href="index.html">Mundo das Camisas</a>
         <!-- Menu hambúrguer -->
         <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
                 class="navbar-toggler"
@@ -50,6 +50,10 @@
             <button class="btn btn-sm btn-outline-light me-2" onclick="mudarFonte(1)">A+</button>
             <button class="btn btn-sm btn-outline-light me-2" onclick="mudarFonte(-1)">A-</button>
             <button class="btn btn-sm btn-outline-warning" onclick="toggleContraste()">🌗 Contraste</button>
+            <!-- Botão do Carrinho -->
+            <button class="btn btn-sm btn-outline-light ms-2 ps-3 fw-bold" type="button" data-bs-toggle="offcanvas" data-bs-target="#carrinhoLateral">
+                🛒 Carrinho (<span id="qtdCarrinho">0</span>)
+            </button>
             <span class="me-3 fw-bold text-white ps-3" id="nomeUsuarioLogado"></span>
             <button class="btn btn-sm btn-danger botaoSair" onclick="fazerLogout()">Sair</button>
         </div>
@@ -70,16 +74,15 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item">
-                <img alt="imagem da seleção brasileira" class="d-block w-100" src="img/joga-sinistro-2.webp"
-                     style="max-width: 100%; height: 50%;">
+                <img alt="imagem da seleção brasileira" class="d-block w-100 img-carousel"
+                     src="img/joga-sinistro-2.webp">
             </div>
             <div class="carousel-item active">
-                <img alt="imagem da camiseta da brasileira" class="d-block w-100" src="img/alegria-que-apavora.jpg"
-                     style="max-width: 100%; height: 50%;">
+                <img alt="imagem da camiseta da seleção brasileira" class="d-block w-100 img-carousel"
+                     src="img/alegria-que-apavora.jpg">
             </div>
             <div class="carousel-item">
-                <img alt="imagem da seleção brasileira" class="d-block w-100" src="img/joga-sinistro.webp"
-                     style="max-width: 100%; height: 50%;">
+                <img alt="imagem da seleção brasileira" class="d-block w-100 img-carousel" src="img/joga-sinistro.webp">
             </div>
         </div>
         <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#myCarousel" type="button"><span
@@ -90,59 +93,101 @@
                 class="visually-hidden">Próximo</span></button>
     </div>
     <!-- Grid de Camisas -->
-    <div class="row mt-4" id="gridProdutos">
-        <div class="col-md-3 col-6 produto-card" data-categoria="nacionais">
-            <div class="card mb-4">
-                <img alt="Camisa do Flamengo" class="card-img-top" src="img/camisa-flamengo-torcedor-m.jpg">
-                <div class="card-body text-center">
-                    <h6 class="card-title camisa" id="camisaFlamengo">Camisa Flamengo Torcedor 26/27 Masculina</h6>
-                    <p class="text-success fw-bold preco" id="precoFlamengo">R$ 399,90</p>
-                    <button class="btn btn-primary btn-sm" onclick="telaCompra()">Comprar</button>
+    <div class="container">
+        <div class="row mt-4" id="gridProdutos">
+            <div class="col-md-3 col-6 produto-card" data-categoria="nacionais">
+                <div class="card mb-4">
+                    <img alt="Camisa do Flamengo" class="card-img-top" src="img/camisa-flamengo-torcedor-m.jpg">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Camisa Flamengo Torcedor 26/27 Masculina</h6>
+                        <p class="fw-bold preco">R$ 399,90</p>
+                        <button class="btn btn-primary btn-sm w-50 fw-bold"
+                                onclick="adicionarAoCarrinho('Camisa Flamengo Torcedor 26/27', 399.90)">Comprar
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3 col-6 produto-card" data-categoria="internacionais">
-            <div class="card mb-4">
-                <img alt="Camisa do PSG" class="card-img-top" src="img/camisa-psg-torcedor-m.webp">
-                <div class="card-body text-center">
-                    <h6 class="card-title camisa" id="camisaPsg">Camisa PSG Torcedor 25/26 Masculina</h6>
-                    <p class="text-success fw-bold preco" id="precoPsg">R$ 259,90</p>
-                    <button class="btn btn-primary btn-sm" onclick="telaCompra()">Comprar</button>
+            <div class="col-md-3 col-6 produto-card" data-categoria="internacionais">
+                <div class="card mb-4">
+                    <img alt="Camisa do PSG" class="card-img-top" src="img/camisa-psg-torcedor-m.webp">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Camisa PSG Torcedor 25/26 Masculina</h6>
+                        <p class="fw-bold preco">R$ 259,90</p>
+                        <button class="btn btn-primary btn-sm w-50 fw-bold"
+                                onclick="adicionarAoCarrinho('Camisa PSG Torcedor 25/26', 259.90)">Comprar
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3 col-6 produto-card" data-categoria="selecao-brasileira">
-            <div class="card mb-4">
-                <img alt="Camisa do Brasil" class="card-img-top" src="img/camisa-brasil-fa-m.webp">
-                <div class="card-body text-center">
-                    <h6 class="card-title camisa" id="camisaBrasil">Camisa Brasil Fã 26/27 Masculina</h6>
-                    <p class="text-success fw-bold preco" id="precoBrasil">R$ 359,90</p>
-                    <button class="btn btn-primary btn-sm" onclick="telaCompra()">Comprar</button>
+            <div class="col-md-3 col-6 produto-card" data-categoria="selecao-brasileira">
+                <div class="card mb-4">
+                    <img alt="Camisa do Brasil" class="card-img-top" src="img/camisa-brasil-fa-m.webp">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Camisa Brasil Fã 26/27 Masculina</h6>
+                        <p class="fw-bold preco">R$ 299,90</p>
+                        <button class="btn btn-primary btn-sm w-50 fw-bold"
+                                onclick="adicionarAoCarrinho('Camisa Brasil Fã 26/27', 299.90)">Comprar
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
             <div class="col-md-3 col-6 produto-card" data-categoria="outras-selecoes">
                 <div class="card mb-4">
                     <img alt="Camisa da Argentina" class="card-img-top" src="img/camisa-argentina-torcedor-m.webp">
                     <div class="card-body text-center">
-                        <h6 class="card-title camisa" id="camisaArgentina">Camisa Argentina Torcedor 26/27 Masculina</h6>
-                        <p class="text-success fw-bold preco" id="precoArgentina">R$ 349,90</p>
-                        <button class="btn btn-primary btn-sm" onclick="telaCompra()">Comprar</button>
+                        <h6 class="card-title">Camisa Argentina Torcedor 26/27 Masculina</h6>
+                        <p class="fw-bold preco">R$ 349,90</p>
+                        <button class="btn btn-primary btn-sm w-50 fw-bold"
+                                onclick="adicionarAoCarrinho('Camisa Argentina Torcedor 26/27', 349.90)">Comprar
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-        <footer class="bg-dark text-white text-center py-3 mt-5">
-            <div class="container">
-                <p class="mb-1">© 2026 Mundo das Camisas</p>
-                <p>Este site foi desenvolvido exclusivamente para fins educacionais. Não realizamos vendas. Todas as
-                    imagens
-                    e logotipos de camisas e clubes pertencem aos seus respectivos donos e foram retiradas da internet
-                    para
-                    fins meramente ilustrativos.</p>
-            </div>
-        </footer>
+    </div>
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <p class="mb-1">© 2026 Mundo das Camisas</p>
+            <p>Este site foi desenvolvido exclusivamente para fins educacionais. Não realizamos vendas. Todas as
+                imagens
+                e logotipos de camisas e clubes pertencem aos seus respectivos donos e foram retiradas da internet
+                para
+                fins meramente ilustrativos.</p>
+        </div>
+    </footer>
 </main>
+<!-- Popup Lateral do Carrinho (Bootstrap Offcanvas) -->
+<div class="offcanvas offcanvas-end" id="carrinhoLateral" tabindex="-1">
+    <div class="offcanvas-header bg-dark text-white">
+        <h5 class="offcanvas-title">Seu Carrinho</h5>
+        <button aria-label="Close" class="btn btn-close btn-close-white" data-bs-dismiss="offcanvas" type="button"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+
+        <!-- Onde os itens vão aparecer -->
+        <ul class="list-group mb-3 flex-grow-1" id="listaCarrinho" style="overflow-y: auto;">
+            <!-- Javascript vai injetar os <li> aqui -->
+        </ul>
+
+        <div class="d-flex justify-content-between fw-bold mb-3 fs-5">
+            <span>Total:</span>
+            <span id="totalCarrinho">R$ 0,00</span>
+        </div>
+
+        <button class="btn btn-success w-100" onclick="finalizarCompra()">Finalizar Compra</button>
+    </div>
+</div>
+<!-- Elemento para o Toast (Coloque isso logo ANTES da tag de script do bootstrap) -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
+    <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-danger border-0" id="meuToast" role="alert">
+        <div class="d-flex">
+            <div class="toast-body" id="toastMensagem">
+                Mensagem aqui.
+            </div>
+            <button aria-label="Close" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" type="button"></button>
+        </div>
+    </div>
+</div>
 <script crossorigin="anonymous"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>

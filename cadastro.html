@@ -11,10 +11,10 @@
 </head>
 <body class="bg-body-tertiary">
 <!-- Menu superior -->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #040273">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
     <div class="container-fluid">
         <img alt="Logo" class="img-fluid ms-3" height="50" src="img/logo.png" width="50">
-        <a class="navbar-brand p-3" href="index.html">Mundo das Camisas</a>
+        <a class="navbar-brand p-3 fw-bold" href="index.html">Mundo das Camisas</a>
         <!-- Menu hambúrguer -->
         <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
                 class="navbar-toggler"
@@ -23,19 +23,6 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item"><a class="nav-link active" href="index.html">Início</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categorias
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('todas')">Todas as Camisas</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('nacionais')">Times Nacionais</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('internacionais')">Times Internacionais</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('selecao-brasileira')">Seleção Brasileira</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="filtrarCategoria('outras-selecoes')">Outras Seleções</a></li>
-                    </ul>
-                </li>
                 <li class="nav-item"><a class="nav-link active" href="cadastro.html">Cadastro</a></li>
                 <li class="nav-item"><a class="nav-link active" href="login.html">Login</a></li>
             </ul>
@@ -75,12 +62,12 @@
 
                 <div class="col-md-4 mb-3">
                     <label for="cep">CEP</label>
-                    <input class="form-control" id="cep" placeholder="00000-000" type="text" maxlength="9">
+                    <input class="form-control" id="cep" maxlength="9" placeholder="00000-000" type="text">
                 </div>
 
                 <div class="col-md-8 mb-3">
                     <label for="logradouro">Rua / Logradouro</label>
-                    <input class="form-control" id="logradouro" type="text" readonly>
+                    <input class="form-control" id="logradouro" readonly type="text">
                 </div>
 
                 <div class="col-md-4 mb-3">
@@ -95,17 +82,17 @@
 
                 <div class="col-md-5 mb-3">
                     <label for="bairro">Bairro</label>
-                    <input class="form-control" id="bairro" type="text" readonly>
+                    <input class="form-control" id="bairro" readonly type="text">
                 </div>
 
                 <div class="col-md-5 mb-3">
                     <label for="cidade">Cidade</label>
-                    <input class="form-control" id="cidade" type="text" readonly>
+                    <input class="form-control" id="cidade" readonly type="text">
                 </div>
 
                 <div class="col-md-2 mb-3">
                     <label for="estado">Estado</label>
-                    <input class="form-control" id="estado" type="text" readonly>
+                    <input class="form-control" id="estado" readonly type="text">
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="senha">Senha</label>
