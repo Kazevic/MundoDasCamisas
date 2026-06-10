@@ -23,6 +23,10 @@ body {
     color: #3b9364;
 }
 
+#gridProdutos {
+    scroll-margin-top: 100px; 
+}
+
 .carousel-item {
     transition: transform 0.3s;
     transition-timing-function: ease-in-out;
