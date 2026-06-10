@@ -231,22 +231,24 @@ function limparCamposEndereco() {
 // 9. FILTRO DE CATEGORIAS (SUBMENU)
 // ==========================================
 function filtrarCategoria(categoriaEscolhida) {
+    const grid = document.getElementById('gridProdutos');
     const todosProdutos = document.querySelectorAll('.produto-card');
-
-    // Passa por cada produto verificando a categoria
-    todosProdutos.forEach(function (produto) {
-
-        // Pega a categoria do produto específico pela data-categoria
+    
+    // Filtra os produtos
+    todosProdutos.forEach(function(produto) {
         const categoriaDoProduto = produto.getAttribute('data-categoria');
-
-        // Se a pessoa clicou em "todas" OU se a categoria do produto for igual à escolhida no menu
+        
         if (categoriaEscolhida === 'todas' || categoriaEscolhida === categoriaDoProduto) {
-            produto.style.display = 'block';
+            produto.style.display = ''; // Respeita o display: flex do CSS
         } else {
-            produto.style.display = 'none';
+            produto.style.display = 'none'; // Esconde o card
         }
-
     });
+
+    // Desce a tela suavemente até as camisas
+    if (grid) {
+        grid.scrollIntoView({ behavior: 'smooth' });
+    }
 }
 
 // ==========================================
