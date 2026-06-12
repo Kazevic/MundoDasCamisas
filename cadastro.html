@@ -44,17 +44,20 @@
             <div class="row">
                 <div class="col-md-12 mb-3">
                     <label for="nome">Nome Completo</label>
-                    <input class="form-control" id="nome"  minlength="15" maxlength="80" placeholder="Mínimo 15 letras" type="text">
+                    <input class="form-control" id="nome" maxlength="80" minlength="15" placeholder="Mínimo 15 letras"
+                           type="text">
                 </div>
 
                 <div class="col-md-6 mb-3">
                     <label for="celular">Telefone Celular</label>
-                    <input class="form-control" id="celular"  minlength="17" maxlength="17" placeholder="(+55)XX-XXXXXXXXX" type="text">
+                    <input class="form-control" id="celular" maxlength="17" minlength="17"
+                           placeholder="(+55)XX-XXXXXXXXX" type="text">
                 </div>
 
                 <div class="col-md-6 mb-3">
                     <label for="login">Nome de usuário</label>
-                    <input class="form-control" id="login" minlength="6" maxlength="6" placeholder="Exatamente 6 letras" type="text">
+                    <input class="form-control" id="login" maxlength="6" minlength="6" placeholder="Exatamente 6 letras"
+                           type="text">
                 </div>
                 <div class="col-12 mt-3 mb-2">
                     <h5 class="border-bottom pb-2">Endereço</h5>
@@ -62,12 +65,13 @@
 
                 <div class="col-md-4 mb-3">
                     <label for="cep">CEP</label>
-                    <input class="form-control" id="cep" minlength="9" maxlength="9" placeholder="00000-000" type="text">
+                    <input class="form-control" id="cep" maxlength="9" minlength="9" placeholder="00000-000"
+                           type="text">
                 </div>
 
                 <div class="col-md-8 mb-3">
                     <label for="logradouro">Rua / Logradouro</label>
-                    <input class="form-control" id="logradouro"  maxlength="100" readonly type="text">
+                    <input class="form-control" id="logradouro" maxlength="100" readonly type="text">
                 </div>
 
                 <div class="col-md-4 mb-3">
@@ -96,12 +100,13 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="senha">Senha</label>
-                    <input class="form-control" id="senha" minlength="8" maxlength="8" placeholder="Exatamente 8 letras" type="password">
+                    <input class="form-control" id="senha" maxlength="8" minlength="8" placeholder="Exatamente 8 letras"
+                           type="password">
                 </div>
 
                 <div class="col-md-6 mb-3">
                     <label for="confirmaSenha">Confirmar Senha</label>
-                    <input class="form-control" id="confirmaSenha" minlength="8" maxlength="8" type="password">
+                    <input class="form-control" id="confirmaSenha" maxlength="8" minlength="8" type="password">
                 </div>
             </div>
             <button class="btn btn-success w-100 py-2" type="submit">Cadastrar</button>
@@ -110,7 +115,7 @@
     </div>
 </main>
 
-<!-- Elemento para o Toast (Feedback sem usar alert!) -->
+<!-- Elemento para o Toast (Feedback) -->
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
     <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-danger border-0" id="meuToast"
          role="alert">

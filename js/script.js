@@ -5,12 +5,12 @@ let tamanhoFonteAtual = 16; // Tamanho base
 
 function mudarFonte(step) {
     tamanhoFonteAtual += (step * 2);
-    // Muda o tamanho da fonte no elemento raiz (HTML) para refletir no site inteiro (usando rem no CSS)
+    // Muda o tamanho da fonte no elemento HTML para refletir no site inteiro (usando rem no CSS)
     document.documentElement.style.fontSize = tamanhoFonteAtual + "px";
 }
 
 function toggleContraste() {
-    // Adiciona ou remove uma classe "alto-contraste" do body
+    // Adiciona ou remove a classe "alto-contraste" do body
     document.body.classList.toggle('alto-contraste');
 }
 
@@ -31,7 +31,7 @@ function mostrarMensagem(mensagem, tipo = 'bg-danger') {
 }
 
 // ==========================================
-// 3. MÁSCARA DO TELEFONE
+// 3. MÁSCARAS
 // ==========================================
 const celInput = document.getElementById('celular');
 if (celInput) {
@@ -40,11 +40,39 @@ if (celInput) {
 
         // Formata para (+55)XX-XXXXXXXXX
         if (value.length > 2 && value.length <= 4) {
-            value = "(+55)" + value.substring(2);
+            value = "(+55)" + value.substring(0);
         } else if (value.length > 4) {
             value = "(+55)" + value.substring(2, 4) + "-" + value.substring(4, 13);
         }
         e.target.value = value;
+    });
+}
+const nomeInput = document.getElementById('nome');
+if (nomeInput) {
+    nomeInput.addEventListener('input', function (e) {
+         // Tira tudo que não é letra ou espaço
+        e.target.value = e.target.value.replace(/[^a-zA-Z ]/g, "");
+    });
+}
+const loginInput = document.getElementById('login');
+if (loginInput) {
+    loginInput.addEventListener('input', function (e) {
+        // Tira tudo que não é letra
+        e.target.value = e.target.value.replace(/[^a-zA-Z]/g, '');
+    });
+}
+const senhaInput = document.getElementById('senha');
+if (senhaInput) {
+    senhaInput.addEventListener('input', function (e) {
+        // Tira tudo que não é letra
+        e.target.value = e.target.value.replace(/[^a-zA-Z]/g, '');
+    });
+}
+const confirmaSenhaInput = document.getElementById('confirmaSenha');
+if (confirmaSenhaInput) {
+    confirmaSenhaInput.addEventListener('input', function (e) {
+        // Tira tudo que não é letra
+        e.target.value = e.target.value.replace(/[^a-zA-Z]/g, '');
     });
 }
 
@@ -72,16 +100,16 @@ if (formCadastro) {
             mostrarMensagem("Erro: O nome deve ter entre 15 e 60 caracteres alfabéticos.");
             return;
         }
-        if (telefone.length < 17) { // Tamanho de (+55)XX-XXXXXXXX
+        if (telefone.length < 17) { // Tamanho de (+55)XX-XXXXXXXXX
             mostrarMensagem("Erro: Preencha o telefone no formato correto.");
             return;
         }
         if (!regexLogin.test(login)) {
-            mostrarMensagem("Erro: O Login deve ter exatamente 6 caracteres alfabéticos.");
+            mostrarMensagem("Erro: O login deve ter exatamente 6 caracteres alfabéticos.");
             return;
         }
         if (!regexSenha.test(senha)) {
-            mostrarMensagem("Erro: A Senha deve ter exatamente 8 caracteres alfabéticos.");
+            mostrarMensagem("Erro: A senha deve ter exatamente 8 caracteres alfabéticos.");
             return;
         }
         if (senha !== confSenha) {
@@ -126,7 +154,7 @@ if (formLogin) {
             // Redireciona para a Vitrine (Tela 3)
             window.location.href = 'index.html';
         } else {
-            mostrarMensagem("Login ou Senha incorretos!", "bg-danger");
+            mostrarMensagem("Login ou senha incorretos!", "bg-danger");
         }
     });
 }
@@ -134,17 +162,9 @@ if (formLogin) {
 // 6. CONTROLE DE SESSÃO NAS PÁGINAS DA LOJA
 // ==========================================
 function verificarSessao() {
-    // Verifica qual página o usuário está acessando agora
-    const urlAtual = window.location.pathname;
-
     // Se ele está logado de verdade
     const estaLogado = localStorage.getItem('usuarioLogado');
     const nomeLogin = localStorage.getItem('usuarioLogin');
-
-    // Se NÃO está logado e NÃO está nas páginas de login/cadastro, expulsa pra tela de login
-    if (estaLogado !== 'sim' && !urlAtual.includes('login.html') && !urlAtual.includes('cadastro.html') && !urlAtual.includes('cadastro') && !urlAtual.includes('login')) {
-        window.location.href = 'login.html';
-    }
 
     // Se ESTÁ logado, coloca o nome dele em cima no menu e exibe botão de sair (ou oculta se não estiver)
     if (estaLogado === 'sim') {
@@ -153,8 +173,18 @@ function verificarSessao() {
             spanNome.innerText = "Olá, " + nomeLogin;
         }
     } else {
+        // Se NÃO está logado, oculta o botão de sair e o carrinho e manda para a página de cadastro clicando em comprar
         const botaoSair = document.querySelector('.botaoSair');
         botaoSair.style.display = 'none';
+        const botaoCarrinho = document.querySelector('.botaoCarrinho');
+        botaoCarrinho.style.display = 'none';
+        const botaoCompra = document.querySelectorAll('.botaoCompra');
+        botaoCompra.forEach(botao => {
+            botao.addEventListener('click', function () {
+                window.location.href = 'cadastro.html';
+            });
+            removerDoCarrinho(0);
+        });
     }
 }
 
@@ -233,11 +263,11 @@ function limparCamposEndereco() {
 function filtrarCategoria(categoriaEscolhida) {
     const grid = document.getElementById('gridProdutos');
     const todosProdutos = document.querySelectorAll('.produto-card');
-    
+
     // Filtra os produtos
-    todosProdutos.forEach(function(produto) {
+    todosProdutos.forEach(function (produto) {
         const categoriaDoProduto = produto.getAttribute('data-categoria');
-        
+
         if (categoriaEscolhida === 'todas' || categoriaEscolhida === categoriaDoProduto) {
             produto.style.display = ''; // Respeita o display: flex do CSS
         } else {
@@ -247,7 +277,7 @@ function filtrarCategoria(categoriaEscolhida) {
 
     // Desce a tela suavemente até as camisas
     if (grid) {
-        grid.scrollIntoView({ behavior: 'smooth' });
+        grid.scrollIntoView({behavior: 'smooth'});
     }
 }
 
@@ -258,7 +288,7 @@ let carrinho = JSON.parse(localStorage.getItem('meuCarrinho')) || [];
 
 function adicionarAoCarrinho(nomeProduto, precoProduto) {
     // Adiciona o item na lista e salva na memória
-    carrinho.push({ nome: nomeProduto, preco: parseFloat(precoProduto) });
+    carrinho.push({nome: nomeProduto, preco: parseFloat(precoProduto)});
     localStorage.setItem('meuCarrinho', JSON.stringify(carrinho));
 
     // Atualiza a tela primeiro antes de exibir a mensagem
@@ -333,7 +363,7 @@ function finalizarCompra() {
 }
 
 // Quando a tela carregar, atualiza o carrinho (para os itens não sumirem)
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     atualizarExibicaoCarrinho();
 });
 verificarSessao();
