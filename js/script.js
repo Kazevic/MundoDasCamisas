@@ -50,7 +50,7 @@ if (celInput) {
 const nomeInput = document.getElementById('nome');
 if (nomeInput) {
     nomeInput.addEventListener('input', function (e) {
-         // Tira tudo que não é letra ou espaço
+        // Tira tudo que não é letra ou espaço
         e.target.value = e.target.value.replace(/[^a-zA-Z ]/g, "");
     });
 }

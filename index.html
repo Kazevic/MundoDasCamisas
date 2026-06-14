@@ -51,7 +51,8 @@
             <button class="btn btn-sm btn-outline-light me-2" onclick="mudarFonte(-1)">A-</button>
             <button class="btn btn-sm btn-outline-warning" onclick="toggleContraste()">🌗 Contraste</button>
             <!-- Botão do Carrinho -->
-            <button class="btn btn-sm btn-outline-light ms-2 ps-3 fw-bold botaoCarrinho" data-bs-target="#carrinhoLateral"
+            <button class="btn btn-sm btn-outline-light ms-2 ps-3 fw-bold botaoCarrinho"
+                    data-bs-target="#carrinhoLateral"
                     data-bs-toggle="offcanvas" type="button">
                 🛒 Carrinho (<span id="qtdCarrinho">0</span>)
             </button>
@@ -68,17 +69,22 @@
         <div class="carousel-indicators">
             <button aria-label="Slide 1" class="" data-bs-slide-to="0" data-bs-target="#myCarousel"
                     type="button"></button>
-            <button aria-current="true" aria-label="Slide 2" class="active" data-bs-slide-to="1"
+            <button aria-current="true" aria-label="Slide 2" class="" data-bs-slide-to="1"
                     data-bs-target="#myCarousel" type="button"></button>
             <button aria-label="Slide 3" class="" data-bs-slide-to="2" data-bs-target="#myCarousel"
                     type="button"></button>
+            <button aria-label="Slide 4" class="active" data-bs-slide-to="3" data-bs-target="#myCarousel"
+                    type="button"></button>
         </div>
         <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img alt="imagem do slogan do site" class="d-block w-100 img-carousel" src="img/imagem-principal.png">
+            </div>
             <div class="carousel-item">
                 <img alt="imagem da seleção brasileira" class="d-block w-100 img-carousel"
                      src="img/joga-sinistro-2.webp">
             </div>
-            <div class="carousel-item active">
+            <div class="carousel-item">
                 <img alt="imagem da camiseta da seleção brasileira" class="d-block w-100 img-carousel"
                      src="img/alegria-que-apavora.jpg">
             </div>
@@ -93,53 +99,223 @@
                 aria-hidden="true" class="carousel-control-next-icon"></span> <span
                 class="visually-hidden">Próximo</span></button>
     </div>
-    <!-- Grid de Camisas -->
+    <!-- Grid de Camisas - Seção "Cards" no Bootstrap = imagem e preços-->
     <div class="container">
         <div class="row mt-4" id="gridProdutos">
+            <!-- Card 1 ao 4 - Clubes nacionais -->
             <div class="col-md-3 col-6 produto-card" data-categoria="nacionais">
                 <div class="card mb-4">
                     <img alt="Camisa do Flamengo" class="card-img-top" src="img/camisa-flamengo-torcedor-m.jpg">
                     <div class="card-body text-center">
                         <h6 class="card-title">Camisa Flamengo Torcedor 26/27 Masculina</h6>
-                        <p class="fw-bold preco">R$ 399,90</p>
+                        <p class="fw-bold preco">R$ 149,99</p>
                         <button class="btn btn-primary btn-sm w-50 fw-bold botaoCompra"
-                                onclick="adicionarAoCarrinho('Camisa Flamengo Torcedor 26/27', 399.90)">Comprar
+                                onclick="adicionarAoCarrinho('Camisa Flamengo Torcedor 26/27 Masculina', 149.99)">
+                            Comprar
                         </button>
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-3 col-6 produto-card" data-categoria="nacionais">
+                <div class="card mb-4">
+                    <img alt="Camisa do Botafogo" class="card-img-top" src="img/camisa-botafogo-torcedor-m.jpg">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Camisa Botafogo Torcedor 26/27 Masculina</h6>
+                        <p class="fw-bold preco">R$ 149,99</p>
+                        <button class="btn btn-primary btn-sm w-50 fw-bold botaoCompra"
+                                onclick="adicionarAoCarrinho('Camisa Botafogo Torcedor 26/27 Masculina', 149.99)">
+                            Comprar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-6 produto-card" data-categoria="nacionais">
+                <div class="card mb-4">
+                    <img alt="Camisa do Vasco" class="card-img-top" src="img/camisa-2-vasco-torcedor-m.jpg">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Camisa II Vasco Torcedor 26/27 Masculina</h6>
+                        <p class="fw-bold preco">R$ 149,99</p>
+                        <button class="btn btn-primary btn-sm w-50 fw-bold botaoCompra"
+                                onclick="adicionarAoCarrinho('Camisa II Vasco Torcedor 26/27 Masculina', 149.99)">
+                            Comprar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-6 produto-card" data-categoria="nacionais">
+                <div class="card mb-4">
+                    <img alt="Camisa do Fluminense" class="card-img-top" src="img/camisa-fluminense-torcedor-m.webp">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Camisa Fluminense Torcedor 26/27 Masculina</h6>
+                        <p class="fw-bold preco">R$ 149,99</p>
+                        <button class="btn btn-primary btn-sm w-50 fw-bold botaoCompra"
+                                onclick="adicionarAoCarrinho('Camisa Fluminense Torcedor 26/27 Masculina', 149.99)">
+                            Comprar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 5 ao 8 - Clubes Internacionais -->
             <div class="col-md-3 col-6 produto-card" data-categoria="internacionais">
                 <div class="card mb-4">
                     <img alt="Camisa do PSG" class="card-img-top" src="img/camisa-psg-torcedor-m.webp">
                     <div class="card-body text-center">
                         <h6 class="card-title">Camisa PSG Torcedor 25/26 Masculina</h6>
-                        <p class="fw-bold preco">R$ 259,90</p>
+                        <p class="fw-bold preco">R$ 149,99</p>
                         <button class="btn btn-primary btn-sm w-50 fw-bold botaoCompra"
-                                onclick="adicionarAoCarrinho('Camisa PSG Torcedor 25/26', 259.90)">Comprar
+                                onclick="adicionarAoCarrinho('Camisa PSG Torcedor 25/26 Masculina', 259.90)">Comprar
                         </button>
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-3 col-6 produto-card" data-categoria="internacionais">
+                <div class="card mb-4">
+                    <img alt="Camisa do Manchester City" class="card-img-top" src="img/camisa-mancity-torcedor-m.jpg">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Camisa Manchester City Torcedor 26/27 Masculina</h6>
+                        <p class="fw-bold preco">R$ 149,99</p>
+                        <button class="btn btn-primary btn-sm w-50 fw-bold botaoCompra"
+                                onclick="adicionarAoCarrinho('Camisa Manchester City Torcedor 26/27 Masculina', 149.99)">
+                            Comprar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-6 produto-card" data-categoria="internacionais">
+                <div class="card mb-4">
+                    <img alt="Camisa do Real Madrid" class="card-img-top" src="img/camisa-realmadrid-torcedor-m.jpg">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Camisa Real Madrid Torcedor 26/27 Masculina</h6>
+                        <p class="fw-bold preco">R$ 149,99</p>
+                        <button class="btn btn-primary btn-sm w-50 fw-bold botaoCompra"
+                                onclick="adicionarAoCarrinho('Camisa Real Madrid Torcedor 26/27 Masculina', 149.99)">
+                            Comprar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-6 produto-card" data-categoria="internacionais">
+                <div class="card mb-4">
+                    <img alt="Camisa do Tottenham" class="card-img-top" src="img/camisa-tottenham-torcedor-m.webp">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Camisa Tottenham Torcedor 26/27 Masculina</h6>
+                        <p class="fw-bold preco">R$ 149,99</p>
+                        <button class="btn btn-primary btn-sm w-50 fw-bold botaoCompra"
+                                onclick="adicionarAoCarrinho('Camisa Tottenham Torcedor 26/27 Masculina', 149.99)">
+                            Comprar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 9 ao 12 - Seleção Brasileira -->
             <div class="col-md-3 col-6 produto-card" data-categoria="selecao-brasileira">
                 <div class="card mb-4">
                     <img alt="Camisa do Brasil" class="card-img-top" src="img/camisa-brasil-fa-m.webp">
                     <div class="card-body text-center">
                         <h6 class="card-title">Camisa Brasil Fã 26/27 Masculina</h6>
-                        <p class="fw-bold preco">R$ 299,90</p>
+                        <p class="fw-bold preco">R$ 139,99</p>
                         <button class="btn btn-primary btn-sm w-50 fw-bold botaoCompra"
-                                onclick="adicionarAoCarrinho('Camisa Brasil Fã 26/27', 299.90)">Comprar
+                                onclick="adicionarAoCarrinho('Camisa Brasil Fã 26/27 Masculina', 139.99)">Comprar
                         </button>
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-3 col-6 produto-card" data-categoria="selecao-brasileira">
+                <div class="card mb-4">
+                    <img alt="Camisa do Brasil Torcedor" class="card-img-top" src="img/camisa-brasil-torcedor-m.jpg">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Camisa Brasil Torcedor 26/27 Masculina</h6>
+                        <p class="fw-bold preco">R$ 199,99</p>
+                        <button class="btn btn-primary btn-sm w-50 fw-bold botaoCompra"
+                                onclick="adicionarAoCarrinho('Camisa Brasil Torcedor 26/27 Masculina', 199.99)">Comprar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-6 produto-card" data-categoria="selecao-brasileira">
+                <div class="card mb-4">
+                    <img alt="Camisa do Brasil Azul" class="card-img-top" src="img/camisa-2-brasil-torcedor-m.jpg">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Camisa II Brasil Torcedor 26/27 Masculina</h6>
+                        <p class="fw-bold preco">R$ 199,99</p>
+                        <button class="btn btn-primary btn-sm w-50 fw-bold botaoCompra"
+                                onclick="adicionarAoCarrinho('Camisa II Brasil Torcedor 26/27', 199.99)">Comprar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-6 produto-card" data-categoria="selecao-brasileira">
+                <div class="card mb-4">
+                    <img alt="Camisa do Brasil Neymar" class="card-img-top"
+                         src="img/camisa-brasil-torcedor-neymar-m.webp">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Camisa Brasil Neymar Jr. 26/27 Masculina</h6>
+                        <p class="fw-bold preco">R$ 220,99</p>
+                        <button class="btn btn-primary btn-sm w-50 fw-bold botaoCompra"
+                                onclick="adicionarAoCarrinho('Camisa Brasil Neymar Jr. 26/27', 220.99)">Comprar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 13 ao 16 - Outras Seleções -->
             <div class="col-md-3 col-6 produto-card" data-categoria="outras-selecoes">
                 <div class="card mb-4">
                     <img alt="Camisa da Argentina" class="card-img-top" src="img/camisa-argentina-torcedor-m.webp">
                     <div class="card-body text-center">
                         <h6 class="card-title">Camisa Argentina Torcedor 26/27 Masculina</h6>
-                        <p class="fw-bold preco">R$ 349,90</p>
+                        <p class="fw-bold preco">R$ 199,99</p>
                         <button class="btn btn-primary btn-sm w-50 fw-bold botaoCompra"
-                                onclick="adicionarAoCarrinho('Camisa Argentina Torcedor 26/27', 349.90)">Comprar
+                                onclick="adicionarAoCarrinho('Camisa Argentina Torcedor 26/27 Masculina', 199.99)">
+                            Comprar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-6 produto-card" data-categoria="outras-selecoes">
+                <div class="card mb-4">
+                    <img alt="Camisa do França" class="card-img-top" src="img/camisa-frança-m.webp">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Camisa França Torcedor 26/27 Masculina</h6>
+                        <p class="fw-bold preco">R$ 199,99</p>
+                        <button class="btn btn-primary btn-sm w-50 fw-bold botaoCompra"
+                                onclick="adicionarAoCarrinho('Camisa França Torcedor 26/27 Masculina', 199.99)">Comprar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-6 produto-card" data-categoria="outras-selecoes">
+                <div class="card mb-4">
+                    <img alt="Camisa do Curaçao" class="card-img-top" src="img/camisa-curaçao-away.jpeg">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Camisa Curaçao II Torcedor 26/27 Masculina</h6>
+                        <p class="fw-bold preco">R$ 199,99</p>
+                        <button class="btn btn-primary btn-sm w-50 fw-bold botaoCompra"
+                                onclick="adicionarAoCarrinho('Camisa Curaçao II Torcedor 26/27', 199.99)">Comprar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-6 produto-card" data-categoria="outras-selecoes">
+                <div class="card mb-4">
+                    <img alt="Camisa da Tchéquia" class="card-img-top" src="img/camisa-tchequia-m.jpg">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Camisa Tchéquia Torcedor 26/27 Masculina</h6>
+                        <p class="fw-bold preco">R$ 199,99</p>
+                        <button class="btn btn-primary btn-sm w-50 fw-bold botaoCompra"
+                                onclick="adicionarAoCarrinho('Camisa Tchéquia Torcedor 26/27 Masculina', 199.99)">
+                            Comprar
                         </button>
                     </div>
                 </div>
