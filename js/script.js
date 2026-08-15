@@ -51,7 +51,9 @@ const nomeInput = document.getElementById('nome');
 if (nomeInput) {
     nomeInput.addEventListener('input', function (e) {
         // Tira tudo que não é letra ou espaço
-        e.target.value = e.target.value.replace(/[^a-zA-Z ]/g, "");
+        e.target.value = e.target.value.replace(/[^a-zA-Z\p{L}+$]/gu, '');
+        e.target.value = e.target.value.replace(/[^\p{L}\s]/gu, '');
+
     });
 }
 const loginInput = document.getElementById('login');
