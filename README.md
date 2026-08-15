@@ -14,8 +14,9 @@ Análise e Desenvolvimento de Sistemas da **UNISUAM**.
 O foco do projeto é aplicar conceitos de Front-End, construindo uma interface responsiva e acessível por meio de
 manipulação do DOM e LocalStorage.
 
-🌐 **[Acesse o Site (Netlify)](http://mundodascamisas.netlify.app)**  
-📄 **[Leia a Documentação do Projeto (Overleaf)](https://www.overleaf.com/read/tkdmsjskwdgq#f81772)**
+🌐 **[Acesse o site (Netlify)](http://mundodascamisas.netlify.app)**  
+📄 **[Leia a documentação do projeto (Overleaf)](https://www.overleaf.com/read/tkdmsjskwdgq#f81772)**
+🖼️ **[Veja os slides do projeto](Slides.pptx)**
 
 ---
 
